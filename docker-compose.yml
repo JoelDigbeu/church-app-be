@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  church-app-db:
+    image: postgres:14-alpine
+    container_name: church-app-db
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    restart: unless-stopped
+
+volumes:
+  postgres:
+
+networks:
+  default:
+    name: church-app-be
+    driver: bridge
