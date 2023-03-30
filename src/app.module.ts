@@ -7,8 +7,8 @@ import {
   configModuleConfiguration,
   graphqlModuleConfiguration,
 } from './configurations'
-import { UsersModule } from './features/users/users.module';
-import { PrismaModule } from './shared/prisma/prisma.module';
+import { UsersModule } from '@features/users'
+import { PrismaModule } from '@shared/prisma'
 
 @Module({
   imports: [
