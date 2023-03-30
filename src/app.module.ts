@@ -7,11 +7,13 @@ import {
   configModuleConfiguration,
   graphqlModuleConfiguration,
 } from './configurations'
+import { UsersModule } from './features/users/users.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot(configModuleConfiguration),
     GraphQLModule.forRoot(graphqlModuleConfiguration),
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
