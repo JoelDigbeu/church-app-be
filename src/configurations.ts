@@ -1,20 +1,20 @@
 import { ApolloDriver } from '@nestjs/apollo'
-import { isProdution } from './shared'
+import { isProdution } from '@shared/common'
 import {
   resolvers as scalarsResolvers,
   typeDefs as scalarsTypeDefs,
 } from 'graphql-scalars'
 import responseCachePlugin from 'apollo-server-plugin-response-cache'
 
-export const configModuleConfiguration = {
+export const getConfigModuleConfiguration = () => ({
   isGlobal: true,
-  envFilePath: isProdution ? '.env' : `.env.${process.env.NODE_ENV}`,
-}
+  envFilePath: '.env',
+})
 
-export const graphqlModuleConfiguration = {
+export const getGraphqlModuleConfiguration = ({ showPlayground = true }) => ({
   driver: ApolloDriver,
   debug: isProdution,
-  playground: process.env.SHOW_GRAPHQL_PLAYGROUND === 'true',
+  playground: showPlayground,
   typePaths: ['./**/*.graphql'],
   resolvers: [scalarsResolvers],
   typeDefs: [...scalarsTypeDefs],
@@ -26,4 +26,4 @@ export const graphqlModuleConfiguration = {
     defaultMaxAge: 5,
   },
   plugins: [responseCachePlugin()],
-}
+})

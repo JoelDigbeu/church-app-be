@@ -4,16 +4,20 @@ import { AppService } from './app.service'
 import { ConfigModule } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
 import {
-  configModuleConfiguration,
-  graphqlModuleConfiguration,
+  getConfigModuleConfiguration,
+  getGraphqlModuleConfiguration,
 } from './configurations'
 import { UsersModule } from '@features/users'
 import { PrismaModule } from '@shared/prisma'
 
 @Module({
   imports: [
-    ConfigModule.forRoot(configModuleConfiguration),
-    GraphQLModule.forRoot(graphqlModuleConfiguration),
+    ConfigModule.forRoot(getConfigModuleConfiguration()),
+    GraphQLModule.forRoot(
+      getGraphqlModuleConfiguration({
+        showPlayground: process.env.SHOW_GRAPHQL_PLAYGROUND === 'true',
+      }),
+    ),
     UsersModule,
     PrismaModule,
   ],

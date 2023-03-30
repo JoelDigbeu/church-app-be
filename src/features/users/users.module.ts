@@ -3,8 +3,10 @@ import { UsersService } from './services'
 import { UsersResolver } from './resolvers'
 import { QUERY_HANDLERS } from './queries'
 import { COMMAND_HANDLERS } from './commands'
+import { CqrsModule } from '@nestjs/cqrs'
 
 @Module({
+  imports: [CqrsModule],
   providers: [
     UsersResolver,
     UsersService,
