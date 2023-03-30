@@ -1,5 +1,5 @@
 type Query {
-  getUsers(options: UsersFilterOptions): paginatedUsersListResponse!
+  getMembers(options: UsersFilterOptions): paginatedUsersListResponse!
 }
 
 type User {

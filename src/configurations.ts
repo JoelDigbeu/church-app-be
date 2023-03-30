@@ -1,5 +1,5 @@
 import { ApolloDriver } from '@nestjs/apollo'
-import { isProdution } from '@shared/common'
+import { isProdution } from '@shared/common/config'
 import {
   resolvers as scalarsResolvers,
   typeDefs as scalarsTypeDefs,
