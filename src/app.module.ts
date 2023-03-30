@@ -8,12 +8,14 @@ import {
   graphqlModuleConfiguration,
 } from './configurations'
 import { UsersModule } from './features/users/users.module';
+import { PrismaModule } from './shared/prisma/prisma.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot(configModuleConfiguration),
     GraphQLModule.forRoot(graphqlModuleConfiguration),
     UsersModule,
+    PrismaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
