@@ -27,8 +27,10 @@
     "@nestjs/core": "^9.0.0",
     "@nestjs/graphql": "^11.0.4",
     "@nestjs/platform-express": "^9.0.0",
+    "apollo-server-plugin-response-cache": "^3.8.2",
     "cross-env": "^7.0.3",
     "graphql": "^16.6.0",
+    "graphql-scalars": "^1.21.3",
     "jest-mock-extended": "^3.0.4",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"

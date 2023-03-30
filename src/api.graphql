@@ -1,0 +1,22 @@
+# for more scalar type visit https://www.graphql-scalars.dev/docs/quick-start
+scalar DateTime
+scalar EmailAddress
+scalar JSON
+scalar Void
+scalar Date
+
+input PaginationOptions {
+  skip: Int
+  take: Int
+}
+
+type PaginationData {
+  skip: Int
+  take: Int
+  total: Int
+}
+
+input PeriodFilterOptions {
+  startDate: String
+  endDate: String
+}

@@ -2,17 +2,16 @@ import { AppController } from './app.controller'
 import { Module } from '@nestjs/common'
 import { AppService } from './app.service'
 import { ConfigModule } from '@nestjs/config'
-import { NODE_ENV } from './shared'
+import { GraphQLModule } from '@nestjs/graphql'
+import {
+  configModuleConfiguration,
+  graphqlModuleConfiguration,
+} from './configurations'
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      envFilePath:
-        process.env.NODE_ENV === NODE_ENV.PRODUCTION
-          ? '.env'
-          : `.env.${process.env.NODE_ENV}`,
-    }),
+    ConfigModule.forRoot(configModuleConfiguration),
+    GraphQLModule.forRoot(graphqlModuleConfiguration),
   ],
   controllers: [AppController],
   providers: [AppService],
