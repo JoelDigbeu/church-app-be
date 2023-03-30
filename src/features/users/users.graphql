@@ -1,0 +1,20 @@
+type Query {
+  getUsers(options: UsersFilterOptions): paginatedUsersListResponse!
+}
+
+type User {
+  id: ID!
+  name: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input UsersFilterOptions {
+  query: String
+  pagination: PaginationOptions
+}
+
+type paginatedUsersListResponse {
+  data: [User]!
+  pagination: PaginationData
+}
